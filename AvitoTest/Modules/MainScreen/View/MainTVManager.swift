@@ -14,11 +14,7 @@ protocol MainTVManagerInput {
 }
 
 protocol MainTVManagerDelegate: AnyObject {
-//    func addChildren()
-//    func deleteChild(uuid: UUID)
-//    func updateChild(child: Childs)
-//    func updateFather(father: MainModel)
-//    func clearChild()
+    
 }
 
 

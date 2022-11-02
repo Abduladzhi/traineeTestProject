@@ -36,16 +36,10 @@ class MainVC: UIViewController {
     
 
     private func setViews() {
-        title = ""
+        title = "Avito"
         view.backgroundColor = .white
-//        tableView.register(UINib(nibName: "ChildrenCell", bundle: nil), forCellReuseIdentifier: "ChildrenCell")
-//        tableView.register(UINib(nibName: "HeaderChildrenCell", bundle: nil), forCellReuseIdentifier: "HeaderChildrenCell")
-//        tableView.register(UINib(nibName: "FatherCell", bundle: nil), forCellReuseIdentifier: "FatherCell")
-//        tableView.register(UINib(nibName: "HeaderFatherCell", bundle: nil), forCellReuseIdentifier: "HeaderFatherCell")
-//        tableView.register(UINib(nibName: "DeleteCell", bundle: nil), forCellReuseIdentifier: "DeleteCell")
-        
+        tableView.register(EmployeesCell.self, forCellReuseIdentifier: "EmployeesCell")
         tableView.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9764705882, alpha: 1)
-        tableView.separatorColor = .clear
         view.addSubview(tableView)
     }
 

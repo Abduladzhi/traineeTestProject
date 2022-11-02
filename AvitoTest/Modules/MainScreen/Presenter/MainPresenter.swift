@@ -9,7 +9,6 @@ import Foundation
 
 protocol MainVCOutput {
     func viewIsReady()
-//    func deleteData()
 }
 
 final class MainPresenter {
@@ -63,8 +62,6 @@ extension MainPresenter: MainVCOutput {
 
 
         getData()
-//        guard let viewModel = self.dataConverter?.convert(data: arrayData, delegate: self) else { return }
-//        view?.success(viewModel: viewModel, delegate: self)
     }
     
 
@@ -79,7 +76,8 @@ extension MainPresenter {
         networkManager?.request(fromURL: URL(string: App.url)!, completion: { (result: Result<MainModel, Error>) in
             switch result {
             case .success(let items):
-                
+                guard let viewModel = self.dataConverter?.convert(data: items, delegate: self) else { return }
+                self.view?.success(viewModel: viewModel, delegate: self)
                 print(items)
                 
             case .failure(let error):
