@@ -20,7 +20,7 @@ final class MainScreenAssembly {
         view.tableViewManager = tableViewManager
         presenter.view = view
         tableViewManager.delegate = presenter
-//
+
         return view
     }
 }

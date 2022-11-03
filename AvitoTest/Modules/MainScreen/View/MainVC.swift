@@ -11,7 +11,6 @@ import UIKit
 protocol MainVCInput: AnyObject {
     func success(viewModel: MainViewModel, delegate: MainTVManagerDelegate)
     func failure(error: Error)
-//    func openAlert()
 }
 
 
@@ -54,22 +53,22 @@ class MainVC: UIViewController {
 }
 
 extension MainVC: MainVCInput {
-//    func openAlert() {
-//        let alert = UIAlertController(title: "Вы точно хотите сбросить данные?", message: "Сброс данных приведёт к удалению всех записей", preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Cбросить данные", style: .default, handler: { action in
-//            self.presenter?.deleteData()
-//        }))
-//        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: { action in
-//        }))
-//        present(alert, animated: true)
-//    }
+    func openAlert() {
+        let alert = UIAlertController(title: "Нет соединения", message: "Повторите запрос в сеть", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { action in
+            self.presenter?.viewIsReady()
+        }))
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: { action in
+        }))
+        present(alert, animated: true)
+    }
     
     func success(viewModel: MainViewModel, delegate: MainTVManagerDelegate) {
         tableViewManager?.update(with: viewModel)
     }
     
     func failure(error: Error) {
-        
+        openAlert()
     }
     
     
